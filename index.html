@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DIANA — Official Site</title><meta name="description" content="DIANA — R&B artist from Atlanta. Debut album, merch and tour dates.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233B82F6'/%3E%3Ctext x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-weight='900' font-size='36' fill='%23fff'%3ED%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style.css"></head><body>
+<nav class="nav"><a class="logo" href="./index.html">DIANA</a><ul>
+<li><a href="./index.html" class="active" aria-current="page">Home</a></li><li><a href="./music.html">Music</a></li><li><a href="./merch.html">Merch</a></li><li><a href="./tour.html">Tour</a></li>
+<li><button class="cartbtn" id="cartbtn" aria-label="Open cart"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 7h12l-1 13H7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="badge" id="badge">0</span></button></li></ul></nav>
+
+<header class="hero"><span class="k">R&amp;B · Atlanta · Debut album out now</span><h1>DIANA</h1><p>Minimal sound. Maximum feeling. The debut album <b>Velvet Nights</b> is streaming everywhere.</p></header>
+<section><span class="sh">Featured single</span><h2>Velvet Nights</h2>
+<div class="single"><div class="art"><img src="./images/album.jpg" alt="Velvet Nights album art"></div>
+<div><p style="color:var(--muted);max-width:480px;margin-bottom:22px">The title track from the debut album — late-night keys, a slow-burn beat and Diana's voice up front.</p>
+<button class="playbig" id="pb" aria-label="Play Velvet Nights">▶</button><audio id="au" src="./audio/velvet-nights.mp3" preload="none"></audio></div></div></section>
+<section><div class="feat"><div class="ph"><img src="./images/hoodie.jpg" alt="Debut Hoodie"></div><div><span class="sh">Featured merch</span><h2>Debut Hoodie</h2><p style="color:var(--muted)">Oversized fit, electric-blue embroidery. The piece fans ask about at every show.</p><p class="price" style="margin:14px 0 20px">$65</p><a class="btn" href="./merch.html">Shop Now</a></div></div></section>
+<section><div class="mail"><span class="sh" style="color:#93C5FD">Mailing list</span><h2 style="color:#fff">Be first to hear it</h2><p style="color:#D1D5DB">New music, merch drops and pre-sale tour tickets.</p>
+<form id="mf" novalidate><input type="email" id="me" placeholder="Email address" aria-label="Email address"><button class="btn" type="submit">Subscribe</button></form><div class="ok" id="mok">You're on the list. Thank you 💙</div></div></section>
+<div class="drawer-bg" id="dbg"></div>
+<aside class="drawer" id="drawer" aria-label="Cart"><header><h3>YOUR CART</h3><button class="x" onclick="closeCart()" aria-label="Close cart">×</button></header>
+<div class="items" id="items"></div><footer><div class="sub"><span>Subtotal</span><span id="subtotal">$0.00</span></div><button class="btn" id="checkout" onclick="checkout()"><span class="lock">🔒</span> Checkout</button><p class="demo">Secure checkout by Stripe.</p></footer></aside>
+<div class="toast" id="toast" role="status"></div>
+<footer class="site"><span>© 2026 DIANA · Atlanta</span><span>Debut album out now</span></footer>
+<script src="./cart.js"></script><script>
+const au=document.getElementById('au'),pb=document.getElementById('pb');pb.onclick=()=>{if(au.paused){au.play();pb.textContent='❚❚';}else{au.pause();pb.textContent='▶';}};
+document.getElementById('mf').onsubmit=e=>{e.preventDefault();if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(document.getElementById('me').value.trim())){document.getElementById('me').style.outline='2px solid #F87171';return;}e.target.style.display='none';document.getElementById('mok').style.display='block';};
+</script></body></html>
